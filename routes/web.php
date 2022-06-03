@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\TestEvent;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
@@ -41,6 +42,16 @@ Route::post('/login', function (Request $request) {
 
 
 
+
+Route::get('/message/{id}', function ($id) {
+
+
+    $user = User::find($id);
+
+    return view('pages.message',compact('user'));
+
+
+ })->name('message');
 
 
 
